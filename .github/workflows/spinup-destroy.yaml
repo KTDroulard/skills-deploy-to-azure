@@ -6,7 +6,7 @@ env:
   IMAGE_REGISTRY_URL: ghcr.io
   AZURE_RESOURCE_GROUP: cd-with-actions
   AZURE_LOCATION: '"East US"'
-  AZURE_WEBAPP_NAME: ktdroulard-ttt-app
+  AZURE_WEBAPP_NAME: KTDroulard-ttt-app
   
 jobs:
   setup-up-azure-resources:

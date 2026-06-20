@@ -70,10 +70,11 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Deploy to Container App
         run: |
+          IMAGE_PATH=$(echo "ghcr.io/${{ github.repository }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }}" | tr '[:upper:]' '[:lower:]')
           az containerapp update \
             --name ${{ env.AZURE_WEBAPP_NAME }} \
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
-            --image ${{ env.IMAGE_REGISTRY_URL }}/${{ github.repository_owner }}/${{ github.event.repository.name }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }} \
+            --image $IMAGE_PATH \
             --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Azure logout
         if: always()

@@ -51,11 +51,12 @@ jobs:
       - name: Create Container App
         if: success()
         run: |
+          IMAGE_PATH=$(echo "${{ env.IMAGE_REGISTRY_URL }}/${{ github.actor }}/ttt-app:latest" | tr '[:upper:]' '[:lower:]')
           az containerapp create \
             --name ${{ env.AZURE_WEBAPP_NAME }} \
             --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
             --environment ${{ env.AZURE_WEBAPP_NAME }}-env \
-            --image ${{ env.IMAGE_REGISTRY_URL }}/${{ github.actor }}/ttt-app:latest \
+            --image $IMAGE_PATH \
             --registry-server ${{ env.IMAGE_REGISTRY_URL }} \
             --registry-username ${{ github.actor }} \
             --registry-password ${{ secrets.CR_PAT }} \

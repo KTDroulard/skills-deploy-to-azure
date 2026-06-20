@@ -7,6 +7,7 @@ env:
   AZURE_RESOURCE_GROUP: cd-with-actions
   AZURE_LOCATION: '"East US"'
   AZURE_WEBAPP_NAME: KTDroulard-ttt-app
+  
 jobs:
   setup-up-azure-resources:
     runs-on: ubuntu-latest

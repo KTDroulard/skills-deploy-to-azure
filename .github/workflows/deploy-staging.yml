@@ -70,10 +70,10 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Deploy to Container App
         run: |
-          az containerapp update `
-            --name ${{ env.AZURE_WEBAPP_NAME }} `
-            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} `
-            --image ${{ env.IMAGE_REGISTRY_URL }}/${{ github.repository }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }} `
+          az containerapp update \
+            --name ${{ env.AZURE_WEBAPP_NAME }} \
+            --resource-group ${{ env.AZURE_RESOURCE_GROUP }} \
+            --image ${{ env.IMAGE_REGISTRY_URL }}/${{ github.repository }}/${{ env.DOCKER_IMAGE_NAME }}:${{ github.sha }} \
             --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Azure logout
         if: always()

@@ -87,7 +87,7 @@ jobs:
 
       - name: Azure logout via Azure CLI
         if: always()
-        uses: azure/CLI@v2
+        uses: azure/CLI@v3
         with:
           inlineScript: |
             az logout
